@@ -29,6 +29,7 @@ using QuantConnect.ToolBox.GDAXDownloader;
 using QuantConnect.ToolBox.GoogleDownloader;
 using QuantConnect.ToolBox.IBDownloader;
 using QuantConnect.ToolBox.IEX;
+using QuantConnect.ToolBox.IQFeed;
 using QuantConnect.ToolBox.IVolatilityEquityConverter;
 using QuantConnect.ToolBox.KaikoDataConverter;
 using QuantConnect.ToolBox.KrakenDownloader;
@@ -116,6 +117,10 @@ namespace QuantConnect.ToolBox
                     case "bfxdl":
                     case "bitfinexdownloader":
                         BitfinexDownloaderProgram.BitfinexDownloader(tickers, resolution, fromDate, toDate);
+                        break;
+                    case "iqfee":
+                    case "iqfeedDownloader":
+                        IQFeedDataDownloaderProgram.IQFeedDataDownloaderProgramConverter(tickers, resolution, fromDate, toDate);
                         break;
                     default:
                         PrintMessageAndExit(1, "ERROR: Unrecognized --app value");
